@@ -1,0 +1,38 @@
+CREATE TABLE tab_estado (
+    ID INT PRIMARY KEY IDENTITY(1,1) NOT FOR REPLICATION,
+    sigla_estado VARCHAR(2) NOT NULL,
+    nome_estado VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE tab_cliente (
+    ID INT PRIMARY KEY IDENTITY(1,1) NOT FOR REPLICATION,
+    cliente_razao_social VARCHAR(255) NOT NULL,
+    cod_estado INT,
+    FOREIGN KEY (cod_estado) REFERENCES tab_estado(ID)
+);
+
+CREATE TABLE tab_tipo_telefone (
+    ID INT PRIMARY KEY IDENTITY(1,1) NOT FOR REPLICATION,
+    Descricao VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE tab_telefone (
+    ID INT PRIMARY KEY IDENTITY(1,1) NOT FOR REPLICATION,
+    numero_telefone VARCHAR(15) NOT NULL,
+    cod_tipo_telefone INT,
+    cod_cliente INT,
+    FOREIGN KEY (cod_tipo_telefone) REFERENCES tab_tipo_telefone(ID),
+    FOREIGN KEY (cod_cliente) REFERENCES tab_cliente(ID)
+);
+
+
+SELECT 
+tc.ID, 
+tc.cliente_razao_social, 
+tt.numero_telefone
+FROM tab_cliente as tc WITH (NOLOCK)
+INNER JOIN tab_estado as te WITH (NOLOCK)
+	ON te.ID = tc.cod_estado
+INNER JOIN tab_telefone as tt WITH (NOLOCK) 
+	ON tt.cod_cliente = tc.ID
+WHERE te.sigla_estado = 'SP';

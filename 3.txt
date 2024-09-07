@@ -1,0 +1,39 @@
+using System;
+using System.Linq;
+
+public class Program
+{
+    public static void Main()
+    {
+        double[] income = { 4000, 0, 1000.20, 0, 3455.11, 2500.30, 0, 4500.90};
+        
+        double lowestIncome = double.MaxValue;
+        double biggestIncome = double.MinValue;
+        double sumIncome = 0;
+        int billedDays = 0;
+        
+        foreach (double value in income)
+        {
+            if (value > 0)
+            {
+                if (value < lowestIncome)
+                    lowestIncome = value;
+                
+                if (value > biggestIncome)
+                    biggestIncome = value;
+                
+                sumIncome += value;
+                billedDays++;
+            }
+        }
+        
+        double anualMedium = sumIncome / billedDays;
+        
+        int daysAboveMedium = income.Count(value => value > anualMedium);
+        
+        // Exibir os resultados
+        Console.WriteLine($"Menor faturamento do ano: {lowestIncome}");
+        Console.WriteLine($"Maior faturamento do ano: {biggestIncome}");
+        Console.WriteLine($"Numero de dias com faturamento acima da media anual: {daysAboveMedium}");
+    }
+}

@@ -1,0 +1,17 @@
+Como cada parada em pedágio equivale a 5 minutos, consideramos que o carro ficaria parado em pedágio por 15 minutos, no total.
+
+Sem pedágio, o carro levaria (125/90) 83 minutos, ou seja, 1 hora e 23 minutos, para percorrer o caminho. 
+
+Se somarmos os 15 minutos de parada, 1 hora e 38 minutos no total.
+
+
+O caminhão, que não para em pedágio, leva (125/80) 93 minutos, ou seja, 1 hora e 33 minutos no total.
+
+Para saber quando irão se cruzar, precisamos somar a velocidade que ambos percorrem por hora (90 + 80 = 170). Se dividirmos o total do percurso pela velocidade somada, teriamos aproximadamente 44 minutos de viagem, que, em teoria, ambos levariam para se cruzar.
+
+Portanto, precisamos pegar a velocidade de cada e multiplicar pelo tempo que levaria para que ambos se cruzem, tendo assim, quando cada um já percorreu naquele momento. 
+
+O carro, a 90km/h, em 44 minutos, terá percorrido aprox 66 km.
+O caminhão, a 80km/h, em 44 minutos terá percorrido aprox 58,82 km. 
+
+Como o caminhão saiu de Barretos para Ribeirão, ele está mais próximo do que o carro.
